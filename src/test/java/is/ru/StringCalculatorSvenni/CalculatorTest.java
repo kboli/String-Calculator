@@ -10,6 +10,7 @@ public class CalculatorTest{
 
         assertEquals(0, Calculator.add(""));
     }
+
     @Test
     public void testOneNumber(){
 
@@ -20,5 +21,11 @@ public class CalculatorTest{
     public void testTwoNumbers(){
 
         assertEquals(3, Calculator.add("1,2"));
+    }
+
+    @Test
+    public void testUnknownNumnberOfNumbers(){
+
+        assertEquals(26, Calculator.add("1,2,4,8,5,6"));
     }
 }
