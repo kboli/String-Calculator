@@ -11,10 +11,14 @@ public class Calculator{
             String [] numbers = text.split(",|\\\n");
 
             for ( int i = 0; i < numbers.length; i++ ){
-                result += Integer.parseInt(numbers[i]);
+                int intI = Integer.parseInt(numbers[i]);
+                if(intI <= 1000){
+                    result += intI;
+
+                }
             }
             return result;
-            
+
         }else if(text != ""){
             result = Integer.parseInt(text);
             return result;
