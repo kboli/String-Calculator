@@ -7,9 +7,17 @@ public class Calculator{
     public static int add(String text){
         int result = 0;
         ArrayList<Integer> negatives = new ArrayList<Integer>();
+
         if (text != "") {
 
-            String[] numbers = text.split(",|\\\n");
+            String delimiters = ",|\n";
+
+            if (text.contains("//")){
+                delimiters = delimiters + "|" + text.substring(2,3);
+                text = text.substring(4);
+            }
+
+            String[] numbers = text.split(delimiters);
 
             for (int i = 0; i < numbers.length; i++) {
                 int intI = Integer.parseInt(numbers[i]);
@@ -26,6 +34,7 @@ public class Calculator{
                 String negNum = negatives.toString();
                 negNum = negNum.replace("[", "");
                 negNum = negNum.replace("]", "");
+                negNum = negNum.replace(" ", "");
                 throw new IllegalArgumentException("Negatives not allowed: " + negNum );
             }
             return result;

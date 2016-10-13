@@ -47,7 +47,15 @@ public class CalculatorTest{
     @Test
     public void shouldThrowRuntimeExceptionNegativesAreIncluded() throws Exception {
         expectedEx.expect(RuntimeException.class);
-        expectedEx.expectMessage("Negatives not allowed: -4, -5");
+        expectedEx.expectMessage("Negatives not allowed: -4,-5");
         Calculator.add("2,-4,3,-5");
     }
+
+    @Test
+    public void testCustomDelimiter(){
+
+        assertEquals(3, Calculator.add("//;\n1;2"));
+    }
+
+
 }
