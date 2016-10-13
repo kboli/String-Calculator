@@ -2,6 +2,8 @@ package is.ru.StringCalculatorSvenni;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+import org.junit.Rule;
+import org.junit.rules.ExpectedException;
 
 public class CalculatorTest{
 
@@ -37,5 +39,15 @@ public class CalculatorTest{
     public void testBiggerNumber(){
 
         assertEquals(2, Calculator.add("1001,2"));
+    }
+
+    @Rule
+    public ExpectedException expectedEx = ExpectedException.none();
+
+    @Test
+    public void shouldThrowRuntimeExceptionNegativesAreIncluded() throws Exception {
+        expectedEx.expect(RuntimeException.class);
+        expectedEx.expectMessage("Negatives not allowed: -4, -5");
+        Calculator.add("2,-4,3,-5");
     }
 }
