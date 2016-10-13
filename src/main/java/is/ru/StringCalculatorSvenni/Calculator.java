@@ -6,10 +6,10 @@ public class Calculator{
 
     public static int add(String text){
         int result = 0;
-        ArrayList<Integer> negatives = new ArrayList<Integer>();
 
         if (text != "") {
 
+            ArrayList<Integer> negatives = new ArrayList<Integer>();
             String delimiters = ",|\n";
 
             if (text.contains("//")){
